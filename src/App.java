@@ -1,13 +1,17 @@
 import processing.core.PApplet;
 
+import java.util.ArrayList;
+
 public class App extends PApplet {
 
     private Button resetButton;
+    private ArrayList<Carrot> carrots;
 
     public void setup() {
         //all setup code here
         frameRate(30);
-        resetButton = new Button(this, 10, 10, "hghfjdkdkdjbvhcklsefio");
+        resetButton = new Button(this, 10, 10, "reset");
+        carrots = new ArrayList<>();
     }
 
     public void settings() {
@@ -20,12 +24,18 @@ public class App extends PApplet {
         background(64);
         rect(mouseX, mouseY, 5, 5);
         resetButton.draw();
-
+        for (Carrot c: carrots) {
+            c.draw();
+        }
     }
 
     public void mouseClicked(){
         if(resetButton.isClicked()){
             System.out.println("clicked");
+            carrots.clear();
+        }
+        else{
+            carrots.add(new Carrot(this, mouseX, mouseY));
         }
     }
 
