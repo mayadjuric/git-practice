@@ -1,32 +1,31 @@
 import processing.core.PApplet;
 
 public class App extends PApplet {
+
+    private Button resetButton;
+
     public void setup() {
+        //all setup code here
         frameRate(30);
+        resetButton = new Button(this, 10, 10, "hghfjdkdkdjbvhcklsefio");
     }
 
     public void settings() {
+        //only to set the size
         size(500, 500);
     }
 
     public void draw(){
         // Global Draw Logic
         background(64);
-        rectMode(CENTER);
         rect(mouseX, mouseY, 5, 5);
+        resetButton.draw();
 
+    }
 
-        if (mousePressed) {
-            // ... example of handling mouse clicks
-        }
-
-        if (keyPressed) {
-            // example of handling keypresses
-            if (key == 'a'){
-                // ...
-            } else if (key == 'b'){
-                // ...
-            }
+    public void mouseClicked(){
+        if(resetButton.isClicked()){
+            System.out.println("clicked");
         }
     }
 
